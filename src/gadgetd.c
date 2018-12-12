@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-
+#include <usbg/usbg.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
@@ -96,9 +96,9 @@ init_config_attrs(struct gd_config *pconfig)
 {
 	int g_ret = GD_SUCCESS;
 
-	pconfig->g_attrs = malloc(sizeof(usbg_gadget_attrs));
-	pconfig->g_strs = malloc(sizeof(usbg_gadget_strs));
-	pconfig->cfg_strs = malloc(sizeof(usbg_config_strs));
+	pconfig->g_attrs = malloc(sizeof(struct usbg_gadget_attrs));
+	pconfig->g_strs = malloc(sizeof(struct usbg_gadget_strs));
+	pconfig->cfg_strs = malloc(sizeof(struct usbg_config_strs));
 
 	if(pconfig->g_attrs == NULL || pconfig->g_strs == NULL
 	   || pconfig->cfg_strs == NULL) {

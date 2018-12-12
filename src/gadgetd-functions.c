@@ -112,22 +112,22 @@ gd_determine_function_group(int type)
 	int group;
 
 	switch (type) {
-	case F_SERIAL:
-	case F_ACM:
-	case F_OBEX:
+	case USBG_F_SERIAL:
+	case USBG_F_ACM:
+	case USBG_F_OBEX:
 		group = FUNC_GROUP_SERIAL;
 		break;
-	case F_ECM:
-	case F_SUBSET:
-	case F_NCM:
-	case F_EEM:
-	case F_RNDIS:
+	case USBG_F_ECM:
+	case USBG_F_SUBSET:
+	case USBG_F_NCM:
+	case USBG_F_EEM:
+	case USBG_F_RNDIS:
 		group = FUNC_GROUP_NET;
 		break;
-	case F_PHONET:
+	case USBG_F_PHONET:
 		group = FUNC_GROUP_PHONET;
 		break;
-	case F_FFS:
+	case USBG_F_FFS:
 		group = FUNC_GROUP_FFS;
 		break;
 	default:
@@ -154,7 +154,7 @@ gd_register_kernel_funcs()
 	for (func = functions; *func; ++func) {
 		func_type = usbg_lookup_function_type(*func);
 		if (func_type < 0) {
-			/* If this function is not supported by libusbg we
+			/* If this function is not supported by libusbx we
 			 * will be unable to create its instance but it's not
 			 * a reason to report an error. Just don't register it
 			 * so it won't be available through gadgetd API
@@ -322,7 +322,7 @@ gd_create_ffs_func(struct gd_gadget *g, struct gd_function_type *t,
 		goto error;
 	}
 
-	usbg_ret = usbg_create_function(g->g, F_FFS,
+	usbg_ret = usbg_create_function(g->g, USBG_F_FFS,
 					usbg_instance_name, NULL, &(f->f));
 	if (usbg_ret != USBG_SUCCESS) {
 		ret = usbg_ret;

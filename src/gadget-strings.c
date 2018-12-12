@@ -132,7 +132,7 @@ gadget_strings_get_property(GObject     *object,
 			     GParamSpec  *pspec)
 {
 	gint usbg_ret;
-	usbg_gadget_strs g_strs;
+	struct usbg_gadget_strs g_strs;
 	GadgetStrings *strings = GADGET_STRINGS(object);
 	struct gd_gadget *gadget = strings->gadget;
 
@@ -149,13 +149,13 @@ gadget_strings_get_property(GObject     *object,
 
 	switch(property_id) {
 	case PROP_STR_PRODUCT:
-		g_value_set_string(value, g_strs.str_prd);
+		g_value_set_string(value, g_strs.product);
 		break;
 	case PROP_STR_MANUFACTURER:
-		g_value_set_string(value, g_strs.str_mnf);
+		g_value_set_string(value, g_strs.manufacturer);
 		break;
 	case PROP_STR_SERIAL_NUMBER:
-		g_value_set_string(value, g_strs.str_ser);
+		g_value_set_string(value, g_strs.serial);
 		break;
 	default:
 		G_OBJECT_WARN_INVALID_PROPERTY_ID(object, property_id, pspec);

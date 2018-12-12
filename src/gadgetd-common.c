@@ -72,16 +72,16 @@ get_function_type(const gchar *_str_type, usbg_function_type *_type)
 		gchar *name;
 		usbg_function_type type;
 	} type[] = {
-		{.name = "gser",  .type = F_SERIAL},
-		{.name = "acm",   .type = F_ACM},
-		{.name = "obex",  .type = F_OBEX},
-		{.name = "geth",  .type = F_SUBSET},
-		{.name = "ecm",   .type = F_ECM},
-		{.name = "ncm",   .type = F_NCM},
-		{.name = "eem",   .type = F_EEM},
-		{.name = "rndis", .type = F_RNDIS},
-		{.name = "phonet",.type = F_PHONET},
-		{.name = "ffs",   .type = F_FFS}
+		{.name = "gser",  .type = USBG_F_SERIAL},
+		{.name = "acm",   .type = USBG_F_ACM},
+		{.name = "obex",  .type = USBG_F_OBEX},
+		{.name = "geth",  .type = USBG_F_SUBSET},
+		{.name = "ecm",   .type = USBG_F_ECM},
+		{.name = "ncm",   .type = USBG_F_NCM},
+		{.name = "eem",   .type = USBG_F_EEM},
+		{.name = "rndis", .type = USBG_F_RNDIS},
+		{.name = "phonet",.type = USBG_F_PHONET},
+		{.name = "ffs",   .type = USBG_F_FFS}
 	};
 
 	for (i=0; i < G_N_ELEMENTS(type); i++) {

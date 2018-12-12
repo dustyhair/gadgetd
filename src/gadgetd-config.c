@@ -193,8 +193,8 @@ gd_skip_keyword(char *keyword)
 }
 
 static int
-gd_read_config_line(struct gd_config *pconfig, usbg_gadget_attrs *g_attrs,
-		 usbg_gadget_strs *g_strs, usbg_config_strs *cfg_strs,
+gd_read_config_line(struct gd_config *pconfig, struct usbg_gadget_attrs *g_attrs,
+		 struct usbg_gadget_strs *g_strs, struct usbg_config_strs *cfg_strs,
 		 char *line, const char *filename, int linenum)
 {
 	int opcode;
@@ -232,13 +232,13 @@ gd_read_config_line(struct gd_config *pconfig, usbg_gadget_attrs *g_attrs,
 		g_ret = GD_ERROR_OTHER_ERROR;
 		break;
 	case O_PRODUCT_NAME:
-		charptr = g_strs->str_prd;
+		charptr = g_strs->product;
 		break;
 	case O_SERIAL_NUMBER:
-		charptr = g_strs->str_ser;
+		charptr = g_strs->serial;
 		break;
 	case O_MANUFACTURER:
-		charptr = g_strs->str_mnf;
+		charptr = g_strs->manufacturer;
 		break;
 	case O_GD_CONFIGURATION:
 		charptr = cfg_strs->configuration;
